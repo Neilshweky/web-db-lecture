@@ -9,7 +9,8 @@ function addTodo(req, res) {
     INSERT INTO todos (title, completed)
     VALUES ('${req.body.title}', ${req.body.completed});
   `;
-  connection.query(query, function(err, rows, fields) {
+
+  connection.query(query, function (err, rows, fields) {
     if (err) res.status(400).send(err);
     else res.send(`Successfully added '${req.body.title}'`);
   });
@@ -30,7 +31,7 @@ function listTodos(req, res) {
     `;
   }
 
-  connection.query(query, function(err, rows, fields) {
+  connection.query(query, function (err, rows, fields) {
     if (err) res.status(400).send(err);
     else res.json(rows);
   });
@@ -41,15 +42,16 @@ function updateTodo(req, res) {
     UPDATE Todos
     SET completed = ${req.body.completed}
     WHERE title = '${req.body.title}';
-`;
-connection.query(query, function(err, rows, fields) {
-  if (err) res.status(400).send(err);
-  else res.send(`Successfully updated '${req.body.title}'`);
-});
+  `;
+
+  connection.query(query, function (err, rows, fields) {
+    if (err) res.status(400).send(err);
+    else res.send(`Successfully updated '${req.body.title}'`);
+  });
 }
 
 module.exports = {
   addTodo,
   listTodos,
-  updateTodo
-}
+  updateTodo,
+};
