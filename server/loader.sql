@@ -4,12 +4,8 @@ CREATE TABLE Todos (
   PRIMARY KEY (title)
 );
 
+INSERT INTO Todos (title, completed)
+VALUES ('Grocery Shopping', TRUE);
 
-
-/*
-CREATE TABLE table_name (
-    column1 datatype,
-    column2 datatype,
-    column3 datatype,
-   ....
-);
+INSERT INTO Todos (title, completed)
+VALUES ('Make Guac', FALSE);
