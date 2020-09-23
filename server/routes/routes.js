@@ -6,8 +6,8 @@ var connection = mysql.createPool(config);
 
 function addTodo(req, res) {
   var query = `
-    INSERT INTO todos (title, completed)
-    VALUES ('${req.body.title}', ${req.body.completed});
+    INSERT INTO Todos (title, completed)
+    VALUES ('${req.body.title}', FALSE);
   `;
 
   connection.query(query, function (err, rows, fields) {

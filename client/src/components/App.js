@@ -1,43 +1,20 @@
 import React from 'react';
-import {
-	BrowserRouter as Router,
-	Route,
-	Switch
-} from 'react-router-dom';
-import Dashboard from './Dashboard';
-import FindFriends from './FindFriends';
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+import Home from './Home';
+import Todos from './Todos';
 
 export default class App extends React.Component {
-
-	render() {
-		return (
-			<div className="App">
-				<Router>
-					<Switch>
-						<Route
-							exact
-							path="/"
-							render={() => (
-								<Dashboard />
-							)}
-						/>
-						<Route
-							exact
-							path="/dashboard"
-							render={() => (
-								<Dashboard />
-							)}
-						/>
-						{/* ---- Part 2 (FindFriends) ---- */}
-						<Route
-							path="/FindFriends"
-							render={() => (
-								<FindFriends />
-							)}
-						/>
-					</Switch>
-				</Router>
-			</div>
-		);
-	}
+  render() {
+    return (
+      <div className='App'>
+        <Router>
+          <Switch>
+            <Route exact path='/' render={() => <Home />} />
+            <Route exact path='/home' render={() => <Home />} />
+            <Route exact path='/todos' render={() => <Todos />} />
+          </Switch>
+        </Router>
+      </div>
+    );
+  }
 }
