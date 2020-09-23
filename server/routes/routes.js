@@ -48,8 +48,20 @@ connection.query(query, function(err, rows, fields) {
 });
 }
 
+function deleteTodo(req, res) {
+  var query = `
+    DELETE FROM Todos
+    WHERE title = '${req.body.title}';
+`;
+connection.query(query, function(err, rows, fields) {
+  if (err) res.status(400).send(err);
+  else res.send(`Successfully updated '${req.body.title}'`);
+});
+}
+
 module.exports = {
   addTodo,
   listTodos,
-  updateTodo
+  updateTodo,
+  deleteTodo
 }

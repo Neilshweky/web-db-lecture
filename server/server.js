@@ -23,9 +23,10 @@ app.use(morgan('tiny'))
 /** ENDPOINTS **/
 
 
-app.post('/addtodo', routes.addTodo)
 app.get('/listtodos', routes.listTodos)
+app.post('/addtodo', routes.addTodo)
 app.put('/updatetodo', routes.updateTodo)
+app.delete('/deletetodo', routes.deleteTodo)
 
 
 console.log('Authors: Neil Shweky (nshweky)');
