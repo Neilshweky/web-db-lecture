@@ -55,15 +55,15 @@ function deleteTodo(req, res) {
     DELETE FROM Todos
     WHERE title = '${req.body.title}';
 `;
-connection.query(query, function(err, rows, fields) {
-  if (err) res.status(400).send(err);
-  else res.send(`Successfully deleted '${req.body.title}'`);
-});
+  connection.query(query, function (err, rows, fields) {
+    if (err) res.status(400).send(err);
+    else res.send(`Successfully deleted '${req.body.title}'`);
+  });
 }
 
 module.exports = {
   addTodo,
   listTodos,
   updateTodo,
-  deleteTodo
-}
+  deleteTodo,
+};
